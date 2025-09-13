@@ -27,5 +27,6 @@
     unzip
     pkg-config
     jq
+    samba
   ];
 }
