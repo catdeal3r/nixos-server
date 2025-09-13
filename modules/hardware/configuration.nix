@@ -52,6 +52,27 @@
     enable = true;
   };
 
+  # Weekly cleanup
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 5d";
+  };
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [];
+  };
+
+  # Firewall
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      22
+    ];
+    allowPing = true; # change after finishing setup
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
