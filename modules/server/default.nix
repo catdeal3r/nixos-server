@@ -7,7 +7,7 @@
     enable = true;
     allowSFTP = true;
     settings = {
-      PermitRootLogin = false;
+      PermitRootLogin = "no";
       X11Forwarding = false;
       PasswordAuthentication = true;
     };
