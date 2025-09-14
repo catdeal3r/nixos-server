@@ -3,5 +3,6 @@
     ./hardware
     ./user
     ./apps
+    ./server
   ];
 }

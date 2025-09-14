@@ -13,8 +13,6 @@
     timeoutStyle = "hidden";
   };
 
-  networking.hostName = "server-0"; # Define your hostname.
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -49,11 +47,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # SSH Daemon
-  services.sshd = {
-    enable = true;
-  };
-
   # Weekly cleanup
   nix.gc = {
     automatic = true;
@@ -64,15 +57,6 @@
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [];
-  };
-
-  # Firewall
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      22
-    ];
-    allowPing = true; # change after finishing setup
   };
 
   # Some programs need SUID wrappers, can be configured further or are
