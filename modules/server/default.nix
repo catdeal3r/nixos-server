@@ -3,8 +3,14 @@
   networking.hostName = "server-0";
 
   # SSH Daemon
-  services.sshd = {
+  services.openssh = {
     enable = true;
+    allowSFTP = true;
+    settings = {
+      PermitRootLogin = false;
+      X11Forwarding = false;
+      PasswordAuthentication = true;
+    };
   };
 
   # Firewall 
@@ -12,6 +18,12 @@
     enable = true;
     allowedTCPPorts = [ 22 ];
     allowPing = true; # change after finishing setup
+    extraCommands = ''
+      # allow my laptop to connect via ssh
+      iptables -A nixos-fw -p tcp --dport 22 -s 192.168.188.185 -j ACCEPT
+      # disallow everything else
+      iptables -A nixos-fw -p tcp --dport 22 -j DROP
+    '';
   };
 
 }
