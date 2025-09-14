@@ -22,7 +22,7 @@
       # allow my laptop to connect via ssh
       # iptables -A nixos-fw -p tcp --dport 22 -s 192.168.188.255 -j ACCEPT
       # disallow everything else
-      iptables -A nixos-fw -p tcp --dport 22 -j ACCEPT
+      iptables -A nixos-fw -p tcp --dport 22 -j nixos-fw-accept
     '';
   };
 
