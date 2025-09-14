@@ -20,9 +20,9 @@
     allowPing = true; # change after finishing setup
     extraCommands = ''
       # allow my laptop to connect via ssh
-      # iptables -A nixos-fw -p tcp --dport 22 -s 192.168.188.255 -j ACCEPT
+      iptables -A nixos-fw -p tcp --dport 22 -s 192.168.188.185 -j ACCEPT
       # disallow everything else
-      iptables -A nixos-fw -p tcp --dport 22 -j nixos-fw-accept
+      iptables -A nixos-fw -p tcp --dport 22 -j DROP
     '';
   };
 
