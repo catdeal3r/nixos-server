@@ -1,4 +1,8 @@
 {
+  environment.systemPackages = with pkgs; [
+    ngrok
+  ];
+
   # Networking hostname
   networking.hostName = "server-0";
 
