@@ -1,10 +1,20 @@
 { pkgs, ...}:
 
-{
+let 
+  vpn-dev = "tun0";
+  port = 1194;
+  client-key = "/home/user/openvpn.key";
+
+in {
   environment.systemPackages = with pkgs; [
     ngrok
     openvpn
   ];
+
+  services.openvpn.servers = {
+    server-0-vpn = {
+    };
+  };
 
   # Networking hostname
   networking.hostName = "server-0";
