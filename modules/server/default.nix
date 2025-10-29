@@ -11,10 +11,10 @@ in {
     openvpn
   ];
 
-  services.openvpn.servers = {
-    server-0-vpn = {
-    };
-  };
+  #services.openvpn.servers = {
+  #  server-0-vpn = {
+  #  };
+  #};
 
   # Networking hostname
   networking.hostName = "server-0";
