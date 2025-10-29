@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     ngrok
+    openvpn
   ];
 
   # Networking hostname
